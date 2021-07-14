@@ -1,10 +1,15 @@
-import {Leon,Aguila,Oso,Serpiente} from './animal.js'
-
-
+import { Leon, Aguila, Oso, Serpiente } from "./animal.js";
 
 (async function () {
-  const Animales1 = await fetch("/animales.json");
-  const { animales: Animales1 } = await Request.json();
+  const Request = await fetch("/animales.json");
+  const { animales: ListadoDeAnimales } = await Request.json();
+
+  /**
+   * @desc - ListadoDeAnimales ahora es un `Array` de `Object`s transformado desde "animales.json".
+   */
+  console.log(ListadoDeAnimales);
+
+  ////////////////////////////////////////////////////////////////
 
   const animalSelect = document.querySelector("#animal");
   const edadSelect = document.querySelector("#edad");
@@ -33,10 +38,8 @@ import {Leon,Aguila,Oso,Serpiente} from './animal.js'
     modalBody.innerHTML = "";
     $(modal).modal("hide");
   }
-// Implementacion de Jquery para cerrar modal mediante la clase indicada
-  $(".modal-body").append()
-
-  
+  // Implementacion de Jquery para cerrar modal mediante la clase indicada
+  $(".modal-body").append();
 
   function updateView() {
     AnimalesDIV.innerHTML = "";
@@ -65,7 +68,6 @@ import {Leon,Aguila,Oso,Serpiente} from './animal.js'
     });
   }
 
-  
   function playSoundOnClick(instance) {
     console.log("play", instance);
     const player = document.querySelector("#player");
